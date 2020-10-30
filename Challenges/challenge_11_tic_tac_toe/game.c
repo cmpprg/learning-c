@@ -54,13 +54,6 @@ int main(){
     bool isPlayer1 = true;
 
     for(int turns = 1; turns <= 9; turns++){
-      //CLEAR THE SCREEN ON EACH ITERATION.
-      system("clear");
-
-      //OPENING STATEMENT FOR THE GAME
-      printf("\n\tTic Tac Toe\n");
-      printf("Player 1 (X) - Player 2 (O)\n\n");
-
       //DRAW BOARD
       drawBoard(boardState);
 
@@ -78,7 +71,6 @@ int main(){
 
       //CHECK FOR A WINNER.
       if(checkForWin(boardState)){
-        system("clear");
         drawBoard(boardState);
         printf("\n%s, Has won the game!\n\n", isPlayer1 ? "Player 1" : "Player 2");
         return 0;
@@ -88,7 +80,6 @@ int main(){
       isPlayer1 = !isPlayer1;
     }
 
-    system("clear");
     drawBoard(boardState);
     printf("\n\nNo body wins! The game is a draw!\n\n");
     return 0;
@@ -117,6 +108,12 @@ void printRow(char *row){
 USES printBuiltRow() & printRow() TO BUILD THE BOARD ON EACH ITERATION.
 */
 void drawBoard(char boardState[3][3]){
+  //CLEAR THE SCREEN ON EACH BUILD.
+  system("clear");
+  //OPENING STATEMENT FOR THE GAME
+  printf("\n\tTic Tac Toe\n");
+  printf("Player 1 (X) - Player 2 (O)\n\n");
+  //BUILD AND DISPLAY BOARD
   for(int i = 0; i < 3; i++){
     printRow(OPENROW);
     printBuiltRow(boardState, i);
