@@ -30,14 +30,15 @@ Notes:
 void printBuiltRow(char state[3][3], int rowNumber);
 void printRow(char *row);
 void drawBoard(char boardState[3][3]);
+
 void markBoard(bool isPlayer1, int playerChoice, char boardState[3][3]);
 bool choiceIsValid(int playerChoice, char boardState[3][3]);
+
 bool compareValues(char val1, char val2, char val3);
 bool checkRow(char boardState[3][3], int idx);
 bool checkColumn(char boardState[3][3], int idx);
 bool checkRowsAndColumnsForWin(char boardState[3][3]);
 bool checkForWin(char boardState[3][3]);
-bool checkColumnsForWin(char boardState[3][3]);
 
 int main(){
     //DECLARE AND INITIALIZE VARIABLES
@@ -161,7 +162,7 @@ SIMPLE FUNCTION, TAKES IN 3 CHARS AND TESTS TO SEE IF THEY ARE THE SAME VALUE.
 bool compareValues(char val1, char val2, char val3){
   bool result = false;
 
-  if(val1 == val2 && val2 == val3 && val1 == val3)
+  if(val1 == val2 && val2 == val3)
       result = true;
 
   return result;
