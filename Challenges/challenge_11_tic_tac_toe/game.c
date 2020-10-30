@@ -39,7 +39,6 @@ bool checkRowsAndColumnsForWin(char boardState[3][3]);
 bool checkForWin(char boardState[3][3]);
 bool checkColumnsForWin(char boardState[3][3]);
 
-
 int main(){
     //DECLARE AND INITIALIZE VARIABLES
     //KEEP TRACK OF WHO PUT WHAT WHERE.
@@ -52,11 +51,8 @@ int main(){
     int playerChoice;
     //TRACK WHOS TURN IT IS
     bool isPlayer1 = true;
-    //TRACK IF GAME IS OVER YET, TO USE WITH GAME ITERATIONS
-    bool gameOver = false;
 
-
-    while(!gameOver){
+    for(int turns = 1; turns <= 9; turns++){
       //CLEAR THE SCREEN ON EACH ITERATION.
       system("clear");
 
@@ -71,7 +67,7 @@ int main(){
       printf("\n%s, Enter a number: ", isPlayer1 ? "Player 1" : "Player 2");
       scanf(" %1d", &playerChoice);
 
-      //WE NEED A VALIDITY CHECK HERE. IF CHOICE IS VALID THEN WE CAN MARK THE BOARD AND MOVE ON.
+      //VALIDITY CHECK
       while(!choiceIsValid(playerChoice, boardState)){
         printf("Please make a different choice: ");
         scanf(" %1d", &playerChoice);
@@ -81,14 +77,19 @@ int main(){
 
       //CHECK FOR A WINNER.
       if(checkForWin(boardState)){
+        system("clear");
+        drawBoard(boardState);
         printf("\n%s, Has won the game!\n\n", isPlayer1 ? "Player 1" : "Player 2");
-        break;
+        return 0;
       };
 
       //SWITCH WHOS TURN IT IS.
       isPlayer1 = !isPlayer1;
-
     }
+
+    system("clear");
+    drawBoard(boardState);
+    printf("\n\nNo body wins! The game is a draw!\n\n");
     return 0;
 }
 
