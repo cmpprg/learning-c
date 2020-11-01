@@ -25,9 +25,9 @@ Notes:
 #include <stdio.h>
 #include <stdbool.h>
 
-int stringLength(char string[]);
-void stringConcat(char string1[], char string2[], char result[]);
-bool stringCompare(char string1[], char string2[]);
+int stringLength(const char string[]);
+void stringConcat(const char string1[], const char string2[], char result[]);
+bool stringCompare(const char string1[], const char string2[]);
 
 int main(void){
     char str1[] = "Hello my name is Ryan Camp!";
@@ -51,7 +51,7 @@ int main(void){
 Name: String Length
 Purpse: Find the length of a string and returns an integer with that value.
 */
-int stringLength(char string[]){
+int stringLength(const char string[]){
     int length = 0;
 
     while(string[length] != '\0')
@@ -63,7 +63,7 @@ int stringLength(char string[]){
 Name: String Concat
 Purpose: Concatinates two strings and assignes new string to a different variable.
 */
-void stringConcat(char string1[], char string2[], char result[]){
+void stringConcat(const char string1[], const char string2[], char result[]){
     int str1Length = stringLength(string1);
     int str2Length = stringLength(string2);
     int combinedLength = str1Length + str2Length;
@@ -86,7 +86,7 @@ void stringConcat(char string1[], char string2[], char result[]){
 Name: Strin Compare
 Purpose: Compares two strings to see if each character is equal
 */
-bool stringCompare(char string1[], char string2[]){
+bool stringCompare(const char string1[], const char string2[]){
     bool result = true;
 
     for(int i = 0; string1[i] != '\0' && string2[i] != '\0'; i++){
