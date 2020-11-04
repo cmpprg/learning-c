@@ -8,7 +8,7 @@ Date: 11-3-2020
 NOTES:
     - we can easily traverse a string using char pointers
 
-    - 
+    -  
 */
 
 #include <stdio.h>
@@ -37,6 +37,14 @@ void copyString(char to[], char from[]){
 void copyStringP(char *to, char *from){
     for(; *from != '\0'; ++from, ++to) 
         *to = *from;
+    
+    *to = '\0';
+}
+
+//the pointer version with while loop
+void copyStringW(char *to, char *from){
+    while(*from) //null character '\0' = 0 = false, so it will jump out when it hits this.
+        *to++ = *from++;
     
     *to = '\0';
 }
